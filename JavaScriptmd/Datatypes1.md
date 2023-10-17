@@ -16,7 +16,7 @@ treat all JS code as newer version
 6. undefined =>
 7. symbol => unique value
 
-**undefined variable declare kara hai but value assign nahi kari**
+**undefined => variable declare kara hai but value assign nahi kari**
 
 ```
 console.log(typeof null) // object
