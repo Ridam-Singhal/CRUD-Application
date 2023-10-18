@@ -15,18 +15,18 @@ console.log(typeof (NaN)); // number
 
 **Datatypes to Number**
 
-"33" => 33
-"33abc" => NaN
-true => 1
-false and null => 0
-undefined => NaN
+- "33" => 33
+- "33abc" => NaN
+- true => 1
+- false and null => 0
+- undefined => NaN
 
 **Datatypes to Boolean**
 
-1 => true
-0 => false
-"" => false
-"hitesh" => true
+- 1 => true
+- 0 => false
+- "" => false
+- "hitesh" => true
 
 ### Operations
 
