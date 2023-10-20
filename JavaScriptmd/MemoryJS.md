@@ -22,11 +22,27 @@ If Heap memory is used we get the reference of variable we used which means chan
 ---
 
 ```
-let myYoutubeName = "hiteshchoudharydotcom"
+Stack Memory Example
 
-let anotherName = myYoutubeName
-console.log(anotherName) // hiteshchoudharydotcom
+let myYoutubename = "hiteshchoudharydotcom"
 
-anotherName = "chaiaurcode"
+let anothername = myYoutubename
+anothername = "chaiaurcode"
+
+console.log(myYoutubename); // hiteshchoudharydotcom
+console.log(anothername); // chaiaurcode
+
+Heap Memory Example
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne
+userTwo["email"] = "hitesh@google.com"
+
+console.log(userOne.email); // hitesh@google.com
+console.log(userTwo.email); // hitesh@google.com
 
 ```
