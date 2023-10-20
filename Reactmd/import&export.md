@@ -26,8 +26,7 @@ How you export your component dictates how you must import it. You will get
 an error if you try to import a default export the same way you would a named
 export! This chart can help you keep track:
 
-| Syntax | Export Statement | Import Statement |
-
-| Default | `export default function Button() {}` | `export default function Button() {}` |
-
-| Named | `export function Button() {}` | `import { Button } from './Button.js';` |
+| Syntax  | Export Statement                      | Import Statement                        |
+| ------- | ------------------------------------- | --------------------------------------- |
+| Default | `export default function Button() {}` | `export default function Button() {}`   |
+| Named   | `export function Button() {}`         | `import { Button } from './Button.js';` |
