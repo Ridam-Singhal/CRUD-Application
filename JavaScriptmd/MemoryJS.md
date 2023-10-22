@@ -32,6 +32,9 @@ anothername = "chaiaurcode"
 console.log(myYoutubename); // hiteshchoudharydotcom
 console.log(anothername); // chaiaurcode
 
+
+
+
 Heap Memory Example
 
 let userOne = {
