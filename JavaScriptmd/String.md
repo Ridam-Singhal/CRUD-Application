@@ -1,1 +1,1 @@
-### To master read all its method from mdn
+### To master String read all its method from mdn
