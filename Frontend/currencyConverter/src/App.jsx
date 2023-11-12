@@ -8,9 +8,9 @@ function App() {
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
-  const currencyinfo = useCurrencyinfo(from);
+  const currencyInfo = useCurrencyinfo(from);
 
-  const options = Object.keys(currencyinfo);
+  const options = Object.keys(currencyInfo);
 
   const swap = () => {
     setFrom(to);
@@ -20,16 +20,22 @@ function App() {
   };
 
   const convert = () => {
-    setConvertedAmount(amount * currencyinfo(to));
+    setConvertedAmount(amount * currencyInfo[to]); // currencyInfo[inr] = value
   };
 
   return (
     <div
-      className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
+      className="w-full h-screen flex flex-wrap flex-row justify-center items-center bg-cover bg-no-repeat"
       style={{
         backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
       }}
     >
+      <div
+        className="w-1/3 h-1/2"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/17391565/pexels-photo-17391565/free-photo-of-a-white-cup-of-coffee-on-a-saucer.jpeg?auto=compress&cs=tinysrgb&w=550&h=720&dpr=1)`,
+        }}
+      ></div>
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
           <form
@@ -43,7 +49,7 @@ function App() {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                onCurrencyChange={(amount) => setAmount(amount)}
+                onCurrencyChange={(currency) => setFrom(currency)}
                 selectCurrency={from}
                 onAmountChange={(amount) => setAmount(amount)}
               />
@@ -63,7 +69,7 @@ function App() {
                 amount={convertedAmount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setTo(currency)}
-                selectCurrency={from}
+                selectCurrency={to}
                 amountDisable
               />
             </div>
