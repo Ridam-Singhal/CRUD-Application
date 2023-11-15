@@ -18,7 +18,9 @@ Two Important Points of DB
 (async () => {
   try {
     // db conncetion
-    await mongoose.connect("dbstring");
+    await mongoose.connect(
+      "mongodb+srv://new_db:<password>@cluster0.vxndbiq.mongodb.net/"
+    );
     console.log("DB connected successfully");
 
     app.on("error", () => {
@@ -36,41 +38,45 @@ Two Important Points of DB
     throw error;
   }
 })();
+*/
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// db connection using Promise
-new Promise((resolve, reject) => {
-  mongoose.connection.on("connected", () => {
-    resolve();
-  });
+// trying to make db connection using Promises
 
-  mongoose.connection.on("error", (err) => {
-    reject(err);
-  });
-
-  mongoose.connect("dbString");
-})
-  .then(() => {
-    console.log("DB connection successful");
-
-    app.on("error", () => {
-      console.log("ERROR ", error);
-      throw error;
+(() => {
+  new Promise((resolve, reject) => {
+    mongoose.connection.on("connected", () => {
+      resolve();
     });
 
-    const onListen = () => {
-      console.log(`Listening on port ${port}`);
-    };
+    mongoose.connection.on("error", (err) => {
+      reject(err);
+    });
 
-    app.listen(port, onListen);
+    mongoose.connect(
+      "mongodb+srv://new_db:<password>@cluster0.vxndbiq.mongodb.net/"
+    );
   })
-  .catch((err) => {
-    console.log("ERROR ", err);
-    throw err;
-  });
+    .then(() => {
+      console.log("DB connection successful");
 
-*/
+      app.on("error", () => {
+        console.log("ERROR ", error);
+        throw error;
+      });
+
+      const onListen = () => {
+        console.log(`Listening on port ${port}`);
+      };
+
+      app.listen(port, onListen);
+    })
+    .catch((err) => {
+      console.log("ERROR ", err);
+      throw err;
+    });
+})();
 
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
