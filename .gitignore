@@ -1,4 +1,2 @@
-node_modules/
-counter/
-practice.js
+node_modules
 .env
