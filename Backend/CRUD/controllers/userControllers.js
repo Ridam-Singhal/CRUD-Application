@@ -8,11 +8,15 @@ exports.createUser = async (req, res) => {
   // extract info
   try {
     // request parameter comes with so many values in it
-    const { name, email } = req.body;
+    const { name, email, gender, DOB } = req.body;
 
     if (!name || !email) {
       throw new Error("Name and Email are required");
     }
+
+    if (!gender) throw new Error("gender is required");
+
+    if (!DOB) throw new Error("DOB is required");
 
     const userexists = await User.findOne({ email: email });
 
@@ -25,6 +29,8 @@ exports.createUser = async (req, res) => {
     const user = await User.create({
       name,
       email,
+      gender,
+      DOB,
     });
 
     res.status(201).json({

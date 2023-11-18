@@ -12,6 +12,16 @@ const userSchema = mongoose.Schema({
     required: [true, "email is required"],
     unique: true,
   },
+  // Contributed by me
+  gender: {
+    type: String,
+    required: [true, "gender is required"],
+    enum: ["Male", "Female", "Other"],
+  },
+  DOB: {
+    type: Date,
+    required: [true, "DOB is required"],
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
