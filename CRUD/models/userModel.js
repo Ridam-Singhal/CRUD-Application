@@ -4,23 +4,17 @@ const userSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, "name is required"],
-    trim: true,
-    maxLength: [20, "Name must be less than 20 char"],
+    maxLength: [25, "name should be less than 25 characters"],
   },
   email: {
     type: String,
     required: [true, "email is required"],
     unique: true,
   },
-  // Contributed by me
-  gender: {
+  password: {
     type: String,
-    required: [true, "gender is required"],
-    enum: ["Male", "Female", "Other"],
-  },
-  DOB: {
-    type: Date,
-    required: [true, "DOB is required"],
+    required: true,
+    minLength: [8, "password should not be less than 8 characters"],
   },
 });
 
