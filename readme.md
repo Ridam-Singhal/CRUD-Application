@@ -37,3 +37,47 @@ The application handles user data with the following model:
 The application uses the following controllers:
 
 - `userController`: Handles operations related to user data.
+
+### API Endpoints
+
+- **Create a new user:**
+
+  ```http
+  POST /register
+  ```
+
+  Request Body:
+
+  ```json
+  {
+    "name": "example",
+    "email": "example@example.com",
+    "password": "securepassword"
+  }
+  ```
+
+- **Get all users:**
+
+  ```http
+  GET /getallusers
+  ```
+
+- **Update a user:**
+
+  ```http
+  PUT /update/:id
+  ```
+
+  Request Body:
+
+  ```json
+  {
+    "username": "newusername"
+  }
+  ```
+
+- **Delete a user:**
+
+  ```http
+  DELETE /delete/:id
+  ```
